@@ -5,6 +5,7 @@
         <div class="form">
             <label for="ville">Votre ville</label>
             <input v-model="ville"  @keypress.enter="appel" id="ville" type="text">
+            <button class="btn" type="button" @click="appel">Search</button>
         </div>
         <br>
         <div class="resultatVille" v-if="temps">
@@ -13,10 +14,10 @@
                 <p>Température : {{ temps.main.temp.toFixed() }} °</p>
                 <p>Humidité : {{ temps.main.humidity }} %</p>
                 <p>Temps : {{ temps.weather[0].description }}</p>
-                <div class="coordonnees">
+                <!-- <div class="coordonnees">
                     <p>Latitude : {{ temps.coord.lat }} ° </p>
                     <p> Longitude : {{ temps.coord.lon }} °</p>
-                </div>
+                </div> -->
             </div>
         </div>
 
@@ -54,7 +55,7 @@ export default {
 <style scoped>
 h1{
     margin-top:30px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 .form{
     max-width: 320px;
@@ -64,7 +65,8 @@ h1{
     font-size:22px;
 }
 .form label{
-    margin-bottom: 10px;
+    margin-bottom: 5px;
+    text-align:left;
 }
 .form input{
     font-size:24px;
@@ -73,7 +75,16 @@ h1{
     border: 1px solid #333;
     border-radius: 5px;
     outline:none;
-    
+}
+.form .btn{
+    width:100px;
+    margin-top:10px;
+    border: none;
+    background-color: rgba(0,212,255,1);
+    border: 1px solid #333;
+    border-radius:3px;
+    padding:5px;
+    outline:none;
 }
 h2{
     margin:20px 0;
